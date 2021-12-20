@@ -1,6 +1,6 @@
 import type { Context, Callback } from 'aws-lambda';
 import { main as handler } from './handler';
-import mockEvent from './mock.json';
+// import mockEvent from './mock.json';
 
 describe('Create User Handler', () => {
   const context = {} as Context;
