@@ -1,4 +1,0 @@
-{
-  "headers": { "Content-Type": "application/json" },
-  "body": "{\"email\": \"teste@gmail.com\", \"password\": \"teste@123\"}"
-}

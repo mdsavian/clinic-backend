@@ -31,8 +31,14 @@ const createUser: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
     );
   }
 
+  // await create user
+
   return formatJSONResponse({
-    message: `Hello ${event.body.name}, welcome to the exciting Serverless world!`,
+    message: 'User sucessfully created!',
+    user: {
+      email,
+      id: '1111',
+    },
     event,
   });
 };
