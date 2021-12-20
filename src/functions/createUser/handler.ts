@@ -12,21 +12,23 @@ const createUser: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
   const { email, password } = event.body;
 
   if (!email) {
-    const response = formatJSONResponse({
-      message: 'You should provide an email to create user',
-      event,
-    });
-    response.statusCode = StatusCodes.BAD_REQUEST;
-    return response;
+    return formatJSONResponse(
+      {
+        message: 'You should provide an email to create user',
+        event,
+      },
+      StatusCodes.BAD_REQUEST,
+    );
   }
 
   if (!password) {
-    const response = formatJSONResponse({
-      message: 'You should provide a password to create user',
-      event,
-    });
-    response.statusCode = StatusCodes.BAD_REQUEST;
-    return response;
+    return formatJSONResponse(
+      {
+        message: 'You should provide a password to create user',
+        event,
+      },
+      StatusCodes.BAD_REQUEST,
+    );
   }
 
   return formatJSONResponse({
