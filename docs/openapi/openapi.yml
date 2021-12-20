@@ -1,9 +1,11 @@
 openapi: 3.0.0
 info:
-  title: 'Serverless Template'
-  description: "Bruna's Clinic Backend"
+  title: 'Clinic Backend'
+  description: Clinic Backend"
   version: 1.0.0
 
 paths:
   /hello:
     $ref: './functions/hello.yml#/paths'
+  /create-user:
+    $ref: './functions/create-user.yml#/paths'

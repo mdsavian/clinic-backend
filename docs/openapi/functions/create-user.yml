@@ -1,0 +1,44 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+      example:
+        - id: '5e472b24bc58313ada92c24b'
+          email: 'teste@gmail.com'
+
+paths:
+  post:
+    summary: 'Create User'
+    description: 'Create user that access the system'
+    requestBody:
+      content:
+        application/json:
+          schema:
+            description: Create user payload
+            type: object
+            required:
+              - email
+              - password
+            properties:
+              email:
+                type: string
+                example: 'teste@gmail.com'
+              password:
+                type: string
+                example: 'teste@123'
+    responses:
+      200:
+        description: 'Successfully created user'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      400:
+        description: 'Client provided invalid data'
+      500:
+        description: 'Internal Server Error'

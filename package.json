@@ -1,7 +1,7 @@
 {
   "name": "serverless-boilerplate",
   "version": "1.0.0",
-  "description": "Bruna's Clinic Backend",
+  "description": "Clinic Backend",
   "main": "serverless.ts",
   "scripts": {
     "start": "serverless offline --httpPort=4000",
