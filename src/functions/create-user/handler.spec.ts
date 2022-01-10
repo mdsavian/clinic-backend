@@ -1,6 +1,13 @@
 import type { Context, Callback } from 'aws-lambda';
 import { main as handler } from './handler';
 import { mocks } from './mock';
+import { CreateUserUseCase } from '@/application/use-cases/CreateUserUseCase';
+
+jest.mock('@/application/use-cases/CreateUserUseCase');
+
+const MockCreateUserUseCase = CreateUserUseCase as jest.MockedClass<
+  typeof CreateUserUseCase
+>;
 
 describe('Create User Handler', () => {
   const context = {} as Context;
@@ -40,13 +47,10 @@ describe('Create User Handler', () => {
     });
   });
   describe('When is a valid request', () => {
-    it('should create an user', async () => {
-      const response = await handler(mocks.mockValidEvent, context, callback);
+    it('should call create user use case', async () => {
+      await handler(mocks.mockValidEvent, context, callback);
 
-      expect(response).toMatchObject({
-        body: expect.stringContaining('"message":"User sucessfully created!'),
-        statusCode: 200,
-      });
+      expect(MockCreateUserUseCase.prototype.execute).toHaveBeenCalled();
     });
   });
 });
