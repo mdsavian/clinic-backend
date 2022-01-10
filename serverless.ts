@@ -80,6 +80,7 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
+      USER_POOL_CLIENT_ID: '${env:INTEGRATION_API_URL}',
     },
     lambdaHashingVersion: '20201221',
   },
