@@ -18,53 +18,16 @@ const serverlessConfiguration: AWS = {
       automatic: true,
       number: 3,
     },
-    alerts: {
-      dashboards: true,
-      definitions: {
-        '5XXErrors': {
-          name: '5XXErrors',
-          namespace: 'AWS/ApiGateway',
-          metric: '5XXError',
-          omitDefaultDimension: true,
-          dimensions: [
-            {
-              Name: 'ApiName',
-              Value: '${self:service}-${self:provider.stage}',
-            },
-            {
-              Name: 'Stage',
-              Value: '${self:provider.stage}',
-            },
-          ],
-          threshold: 5,
-          statistic: 'Sum',
-          period: 60,
-          evaluationPeriods: 1,
-          datapointsToAlarm: 1,
-          comparisonOperator: 'GreaterThanOrEqualToThreshold',
-        },
-      },
-      alarms: ['functionThrottles', 'functionErrors', '5XXErrors'],
-    },
   },
   plugins: [
     'serverless-webpack',
     'serverless-offline',
     'serverless-stage-manager',
     'serverless-prune-plugin',
-    'serverless-plugin-aws-alerts',
-    'serverless-plugin-canary-deployments',
   ],
   provider: {
     name: 'aws',
     runtime: 'nodejs12.x',
-    iamRoleStatements: [
-      {
-        Effect: 'Allow',
-        Action: ['codedeploy:*'],
-        Resource: '*',
-      },
-    ],
     apiGateway: {
       minimumCompressionSize: 1024,
       shouldStartNameWithService: true,
