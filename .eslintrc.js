@@ -24,6 +24,12 @@ module.exports = {
     'import/extensions': 'off',
     'prettier/prettier': 'error',
     '@typescript-eslint/no-var-requires': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: ['**/*.spec.ts', '**/*.test.ts'],
+      },
+    ],
   },
   settings: {
     'import/resolver': {
