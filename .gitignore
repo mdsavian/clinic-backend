@@ -15,7 +15,7 @@ yarn-error.log
 coverage
 
 # Dotenv files
-!.env.example
 .env*
+!.env.example
 
 

@@ -47,7 +47,6 @@ const createUser: ValidatedEventAPIGatewayProxyEvent<typeof schema> = async (
   return formatJSONResponse({
     message: 'User sucessfully created!',
     user,
-    event,
   });
 };
 

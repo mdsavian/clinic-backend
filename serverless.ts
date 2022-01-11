@@ -43,7 +43,8 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
-      USER_POOL_CLIENT_ID: '${env:INTEGRATION_API_URL}',
+      COGNITO_USER_POOL_ID: '${env:COGNITO_USER_POOL_ID}',
+      COGNITO_USER_CLIENT_ID: '${env:COGNITO_USER_CLIENT_ID}',
     },
     lambdaHashingVersion: '20201221',
   },

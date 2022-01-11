@@ -1,1 +1,1 @@
-process.env.USER_POOL_CLIENT_ID = 'test-user-poll-client';
+process.env.COGNITO_USER_CLIENT_ID = 'test-user-poll-client';
